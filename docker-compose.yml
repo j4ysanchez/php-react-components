@@ -1,0 +1,13 @@
+services:
+  php:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
+    volumes:
+      - ./src:/var/www/html
+    environment:
+      PHP_INI_SCAN_DIR: /usr/local/etc/php/conf.d
+      UPLOAD_MAX_FILESIZE: 20M
+      POST_MAX_SIZE: 20M
